@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 170" width="130" height="170">
+  <!--
+    Icon-only version of the v4 Z mark
+    mRNA (top) → Ribosome (middle) → Protein (bottom)
+  -->
+
+  <!-- ====== mRNA strand with nucleotide lollipops ====== -->
+  <path d="M10 44 L120 44" stroke="#007AFF" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <line x1="22" y1="44" x2="22" y2="22" stroke="#30D158" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="22" cy="17" r="9.5" fill="#30D158"/>
+  <text x="18" y="21.5" font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="800" fill="white">A</text>
+
+  <line x1="46" y1="44" x2="46" y2="22" stroke="#FF6482" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="46" cy="17" r="9.5" fill="#FF6482"/>
+  <text x="42" y="21.5" font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="800" fill="white">U</text>
+
+  <line x1="70" y1="44" x2="70" y2="22" stroke="#FFD60A" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="70" cy="17" r="9.5" fill="#FFD60A"/>
+  <text x="65.5" y="21.5" font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="800" fill="white">G</text>
+
+  <line x1="94" y1="44" x2="94" y2="22" stroke="#64D2FF" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="94" cy="17" r="9.5" fill="#64D2FF"/>
+  <text x="90" y="21.5" font-family="Inter, Arial, sans-serif" font-size="9.5" font-weight="800" fill="white">C</text>
+
+  <!-- 5' / 3' -->
+  <text x="1" y="56" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#007AFF" opacity="0.5">5'</text>
+  <text x="114" y="56" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#007AFF" opacity="0.5">3'</text>
+
+  <!-- Diagonal into ribosome -->
+  <path d="M118 46 C114 58, 98 68, 86 76"
+        stroke="#007AFF" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- ====== RIBOSOME ====== -->
+  <!-- 60S -->
+  <path d="M30 104 C30 86, 44 78, 64 78 C84 78, 98 86, 98 104 C98 114, 84 122, 64 122 C44 122, 30 114, 30 104Z"
+        fill="#F2EAFF" stroke="#BF5AF2" stroke-width="2.2"/>
+  <text x="52" y="112" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#BF5AF2" opacity="0.65">60S</text>
+
+  <!-- 40S -->
+  <ellipse cx="64" cy="78" rx="28" ry="14" fill="#E8F5FF" stroke="#007AFF" stroke-width="2.2"/>
+  <text x="52" y="82" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#007AFF" opacity="0.65">40S</text>
+
+  <!-- mRNA channel -->
+  <path d="M36 90 L92 90" stroke="#007AFF" stroke-width="2" stroke-dasharray="4 3" opacity="0.3" stroke-linecap="round"/>
+
+  <!-- Diagonal out of ribosome -->
+  <path d="M36 108 C28 118, 20 128, 14 134"
+        stroke="#BF5AF2" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- ====== PROTEIN chain ====== -->
+  <path d="M14 148 L118 148" stroke="#475569" stroke-width="1.5" opacity="0.18" stroke-linecap="round"/>
+
+  <circle cx="14" cy="148" r="10" fill="#BF5AF2"/>
+  <circle cx="35" cy="148" r="10" fill="#FF6482"/>
+  <circle cx="56" cy="148" r="10" fill="#FF9F0A"/>
+  <circle cx="77" cy="148" r="10" fill="#30D158"/>
+  <circle cx="98" cy="148" r="10" fill="#007AFF"/>
+  <circle cx="116" cy="148" r="8" fill="#64D2FF" opacity="0.55"/>
+
+  <!-- Bead shine -->
+  <circle cx="11" cy="145" r="3.5" fill="white" opacity="0.3"/>
+  <circle cx="32" cy="145" r="3.5" fill="white" opacity="0.3"/>
+  <circle cx="53" cy="145" r="3.5" fill="white" opacity="0.3"/>
+  <circle cx="74" cy="145" r="3.5" fill="white" opacity="0.3"/>
+  <circle cx="95" cy="145" r="3.5" fill="white" opacity="0.3"/>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 150" width="420" height="150">
+  <!--
+    Concept 2A: The "Z" tells the story of translation
+    Top stroke = mRNA (wavy, with AUGC letter styling)
+    Diagonal = the act of translation (gradient transition)
+    Bottom stroke = protein/polypeptide (connected round beads)
+    This makes the biology visually obvious.
+  -->
+  <defs>
+    <linearGradient id="transGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891b2"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="proteinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="30%" style="stop-color:#a78bfa"/>
+      <stop offset="60%" style="stop-color:#f43f5e"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ====== THE "Z" ====== -->
+
+  <!-- TOP: mRNA strand (wavy line with base-pair bumps) -->
+  <path d="M14 28 Q22 18 30 28 Q38 38 46 28 Q54 18 62 28 Q70 38 78 28 Q86 18 94 28"
+        stroke="#0891b2" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Tiny base letters along mRNA top -->
+  <text x="20" y="21" font-family="Inter, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#0891b2" opacity="0.55">A</text>
+  <text x="36" y="42" font-family="Inter, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#0891b2" opacity="0.55">U</text>
+  <text x="52" y="21" font-family="Inter, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#0891b2" opacity="0.55">G</text>
+  <text x="68" y="42" font-family="Inter, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#0891b2" opacity="0.55">C</text>
+  <text x="84" y="21" font-family="Inter, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#0891b2" opacity="0.55">A</text>
+
+  <!-- DIAGONAL: Translation in progress — gradient from mRNA color to protein color -->
+  <line x1="90" y1="32" x2="20" y2="92" stroke="url(#transGrad)" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="6 4"/>
+
+  <!-- Small arrow/ribosome indicator at the midpoint of translation -->
+  <circle cx="55" cy="62" r="9" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+  <circle cx="55" cy="59" r="5.5" fill="#ede9fe" stroke="#7c3aed" stroke-width="1" opacity="0.8"/>
+  <!-- Tiny arrow inside -->
+  <path d="M52 62 L58 62 M56 60 L58 62 L56 64" stroke="#0891b2" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+  <!-- BOTTOM: Protein / polypeptide chain (connected colored beads) -->
+  <circle cx="18" cy="98" r="7" fill="#7c3aed" opacity="0.7"/>
+  <circle cx="34" cy="98" r="7" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="50" cy="98" r="7" fill="#f43f5e" opacity="0.65"/>
+  <circle cx="66" cy="98" r="7" fill="#f59e0b" opacity="0.65"/>
+  <circle cx="82" cy="98" r="7" fill="#10b981" opacity="0.65"/>
+  <circle cx="96" cy="98" r="6" fill="#0ea5e9" opacity="0.5"/>
+  <!-- Connecting lines between beads -->
+  <line x1="25" y1="98" x2="27" y2="98" stroke="#475569" stroke-width="1.5" opacity="0.3"/>
+  <line x1="41" y1="98" x2="43" y2="98" stroke="#475569" stroke-width="1.5" opacity="0.3"/>
+  <line x1="57" y1="98" x2="59" y2="98" stroke="#475569" stroke-width="1.5" opacity="0.3"/>
+  <line x1="73" y1="98" x2="75" y2="98" stroke="#475569" stroke-width="1.5" opacity="0.3"/>
+  <line x1="89" y1="98" x2="91" y2="98" stroke="#475569" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Labels for clarity -->
+  <text x="3" y="14" font-family="Inter, Arial, sans-serif" font-size="7" font-weight="700" fill="#0891b2" opacity="0.6" letter-spacing="1">mRNA</text>
+  <text x="3" y="120" font-family="Inter, Arial, sans-serif" font-size="7" font-weight="700" fill="#7c3aed" opacity="0.6" letter-spacing="1">PROTEIN</text>
+
+  <!-- ====== TEXT ====== -->
+  <text x="130" y="60" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="#0f172a">Zhao</text>
+  <text x="242" y="60" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="#0891b2">Lab</text>
+
+  <!-- Tagline -->
+  <text x="132" y="85" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="500" fill="#64748b" letter-spacing="0.5">
+    Translation &amp; Cancer Biology
+  </text>
+
+  <!-- Affiliation -->
+  <text x="132" y="108" font-family="Inter, Arial, Helvetica, sans-serif" font-size="10.5" fill="#94a3b8" letter-spacing="0.3">
+    Baylor College of Medicine
+  </text>
+</svg>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zhao Lab | Translation &amp; Cancer Biology &middot; Baylor College of Medicine</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Bright, energetic science palette */
+  --teal: #0891b2;
+  --teal-dark: #0e7490;
+  --teal-light: #22d3ee;
+  --teal-50: #ecfeff;
+  --teal-100: #cffafe;
+  --sky: #0ea5e9;
+  --sky-light: #7dd3fc;
+  --amber: #f59e0b;
+  --amber-light: #fcd34d;
+  --amber-dark: #d97706;
+  --violet: #7c3aed;
+  --violet-light: #a78bfa;
+  --rose: #f43f5e;
+  --emerald: #10b981;
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
+  --white: #ffffff;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--slate-700);
+  line-height: 1.75;
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--slate-200);
+  transition: all 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 68px;
+}
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--slate-800); text-decoration: none;
+}
+.nav-logo .color { color: var(--teal); }
+.nav-links { display: flex; gap: 0.15rem; list-style: none; }
+.nav-links a {
+  display: block; padding: 0.5rem 0.9rem;
+  font-size: 0.92rem; font-weight: 500;
+  color: var(--slate-500); text-decoration: none;
+  border-radius: 8px; transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--teal-dark); background: var(--teal-50); }
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+.mobile-toggle svg { width: 26px; height: 26px; stroke: var(--slate-600); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 94vh;
+  display: flex; align-items: center;
+  background: var(--white);
+  position: relative; overflow: hidden;
+  padding-top: 68px;
+}
+/* Playful gradient background */
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 90%, rgba(8,145,178,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.04) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(245,158,11,0.03) 0%, transparent 50%);
+}
+.hero-content {
+  position: relative; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: center;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.85rem; font-weight: 600; color: var(--teal);
+  background: var(--teal-50); padding: 0.4rem 1rem; border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+.hero-tag .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+.hero-text h1 {
+  font-family: var(--font-serif);
+  font-size: 3.4rem; font-weight: 700; line-height: 1.18;
+  color: var(--slate-900); margin-bottom: 1.75rem;
+}
+.hero-text h1 .highlight {
+  background: linear-gradient(120deg, var(--teal) 0%, var(--violet) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-text .hero-desc {
+  font-size: 1.15rem; color: var(--slate-500);
+  margin-bottom: 1rem; max-width: 540px; line-height: 1.85;
+}
+.hero-text .hero-desc strong { color: var(--slate-700); font-weight: 600; }
+.hero-text .affiliation {
+  font-size: 0.9rem; color: var(--slate-400); margin-bottom: 2rem;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem; border-radius: 10px;
+  font-size: 0.95rem; font-weight: 600; text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-teal {
+  background: var(--teal); color: var(--white);
+  box-shadow: 0 4px 14px rgba(8,145,178,0.25);
+}
+.btn-teal:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(8,145,178,0.3); }
+.btn-light {
+  background: var(--slate-100); color: var(--slate-700);
+}
+.btn-light:hover { background: var(--slate-200); }
+
+/* Hero illustration — colorful abstract ribosome */
+.hero-illustration { display: flex; justify-content: center; align-items: center; }
+.hero-svg-wrap {
+  width: 100%; max-width: 440px; position: relative;
+}
+.hero-svg-wrap svg { width: 100%; height: auto; }
+/* Fun floating labels */
+.science-tag {
+  position: absolute; background: var(--white);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border-radius: 10px; padding: 0.6rem 1rem;
+  font-size: 0.82rem; font-weight: 600;
+  display: flex; align-items: center; gap: 0.5rem;
+  animation: float 6s ease-in-out infinite;
+}
+.science-tag .icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+}
+.st-1 { top: 5%; right: -5%; animation-delay: 0s; }
+.st-1 .icon { background: var(--teal-50); }
+.st-1 span { color: var(--teal-dark); }
+.st-2 { bottom: 20%; left: -8%; animation-delay: -2s; }
+.st-2 .icon { background: #fef3c7; }
+.st-2 span { color: var(--amber-dark); }
+.st-3 { bottom: 2%; right: 5%; animation-delay: -4s; }
+.st-3 .icon { background: #ede9fe; }
+.st-3 span { color: var(--violet); }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ===== SECTIONS ===== */
+section { padding: 6rem 2rem; }
+.section-inner { max-width: 1120px; margin: 0 auto; }
+.section-label {
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2.6rem; font-weight: 700; color: var(--slate-900);
+  margin-bottom: 1rem; line-height: 1.25;
+}
+.section-subtitle {
+  font-size: 1.1rem; color: var(--slate-500);
+  max-width: 640px; margin-bottom: 3rem; line-height: 1.8;
+}
+.bg-teal { background: var(--teal-50); }
+.bg-slate { background: var(--slate-50); }
+
+/* ===== RESEARCH ===== */
+.research-intro {
+  font-family: var(--font-serif);
+  font-size: 1.25rem; color: var(--slate-600); max-width: 830px;
+  margin-bottom: 3.5rem; line-height: 1.9;
+}
+.research-intro strong { color: var(--slate-800); }
+.research-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.research-card {
+  background: var(--white); border: 1.5px solid var(--slate-200);
+  border-radius: 16px; padding: 2.25rem 2rem; transition: all 0.3s;
+  position: relative; overflow: hidden;
+}
+.research-card:hover { border-color: var(--teal); box-shadow: 0 8px 30px rgba(8,145,178,0.08); transform: translateY(-3px); }
+.rc-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.3rem 0.75rem;
+  border-radius: 6px; margin-bottom: 1.25rem;
+}
+.rc-badge-teal { background: var(--teal-50); color: var(--teal-dark); }
+.rc-badge-amber { background: #fef3c7; color: var(--amber-dark); }
+.rc-badge-violet { background: #ede9fe; color: var(--violet); }
+.research-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem; font-weight: 600; color: var(--slate-800);
+  margin-bottom: 0.85rem; line-height: 1.45;
+}
+.research-card p { font-size: 0.95rem; color: var(--slate-500); line-height: 1.8; }
+.research-card .methods {
+  margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.4rem;
+}
+.method-tag {
+  font-size: 0.72rem; font-weight: 600; color: var(--slate-400);
+  background: var(--slate-100); padding: 0.25rem 0.6rem; border-radius: 4px;
+}
+
+/* Clinical impact callout */
+.clinical-callout {
+  background: linear-gradient(135deg, var(--teal), var(--sky));
+  border-radius: 16px; padding: 2.5rem 3rem;
+  color: var(--white);
+  display: flex; align-items: center; gap: 2rem;
+}
+.clinical-callout .cc-icon {
+  flex-shrink: 0; width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+}
+.clinical-callout h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; }
+.clinical-callout p { font-size: 0.95rem; opacity: 0.9; line-height: 1.7; }
+
+/* ===== PEOPLE ===== */
+.pi-section {
+  display: grid; grid-template-columns: 220px 1fr; gap: 3rem;
+  margin-bottom: 4rem; align-items: start;
+}
+.pi-photo {
+  width: 220px; height: 260px; border-radius: 16px;
+  background: linear-gradient(135deg, var(--teal-50), var(--slate-100));
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  border: 1.5px solid var(--slate-200);
+}
+.pi-photo-placeholder {
+  font-size: 0.85rem; color: var(--slate-400); text-align: center; padding: 1rem;
+}
+.pi-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.65rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.3rem;
+}
+.pi-info .pi-title { font-size: 1rem; color: var(--teal); font-weight: 600; margin-bottom: 0.5rem; }
+.pi-info .pi-dept { font-size: 0.92rem; color: var(--slate-400); margin-bottom: 1.25rem; line-height: 1.65; }
+.pi-bio { font-size: 1rem; color: var(--slate-600); line-height: 1.85; margin-bottom: 1.25rem; }
+.pi-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.pi-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 1rem; border-radius: 8px;
+  font-size: 0.85rem; font-weight: 500; color: var(--slate-600);
+  border: 1.5px solid var(--slate-200); text-decoration: none;
+  transition: all 0.2s;
+}
+.pi-link:hover { border-color: var(--teal); color: var(--teal); }
+
+.members-label {
+  font-family: var(--font-serif);
+  font-size: 1.25rem; font-weight: 600; color: var(--slate-800);
+  margin-bottom: 1.5rem;
+}
+.team-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.25rem;
+}
+.team-card {
+  text-align: center; padding: 2rem 1rem 1.5rem;
+  border: 1.5px solid var(--slate-200); border-radius: 14px;
+  transition: all 0.25s; background: var(--white);
+}
+.team-card:hover { border-color: var(--teal); box-shadow: 0 4px 16px rgba(8,145,178,0.06); }
+.team-avatar {
+  width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 1rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.team-avatar .initials {
+  font-family: var(--font-serif);
+  font-size: 1.1rem; font-weight: 700; color: var(--white);
+}
+/* Each member gets a different color */
+.ta-teal { background: linear-gradient(135deg, var(--teal), var(--sky)); }
+.ta-violet { background: linear-gradient(135deg, var(--violet), var(--violet-light)); }
+.ta-amber { background: linear-gradient(135deg, var(--amber), var(--amber-light)); }
+.ta-rose { background: linear-gradient(135deg, var(--rose), #fb7185); }
+.ta-emerald { background: linear-gradient(135deg, var(--emerald), #34d399); }
+.ta-sky { background: linear-gradient(135deg, var(--sky), var(--sky-light)); }
+.team-card h4 {
+  font-size: 1rem; font-weight: 600; color: var(--slate-800); margin-bottom: 0.15rem;
+}
+.team-card .role { font-size: 0.82rem; color: var(--slate-400); }
+
+/* ===== PUBLICATIONS ===== */
+.pub-list { display: flex; flex-direction: column; gap: 0; }
+.pub-item {
+  padding: 1.5rem 0; border-bottom: 1px solid var(--slate-200);
+  display: grid; grid-template-columns: 70px 1fr; gap: 1.5rem;
+  align-items: start; transition: all 0.2s;
+}
+.pub-item:first-child { border-top: 1px solid var(--slate-200); }
+.pub-item:hover { padding-left: 0.5rem; }
+.pub-year-col {
+  font-family: var(--font-serif); font-size: 1.3rem;
+  font-weight: 600; color: var(--slate-300); padding-top: 0.1rem;
+}
+.pub-item.featured .pub-year-col { color: var(--teal); }
+.pub-title-text {
+  font-family: var(--font-serif);
+  font-size: 1.08rem; font-weight: 600; color: var(--slate-800); margin-bottom: 0.35rem;
+  line-height: 1.5;
+}
+.pub-authors { font-size: 0.88rem; color: var(--slate-400); margin-bottom: 0.25rem; line-height: 1.6; }
+.pub-journal {
+  font-size: 0.92rem; color: var(--teal); font-weight: 600;
+}
+.pub-badge {
+  display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--white); background: var(--teal);
+  padding: 0.15rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; vertical-align: middle;
+}
+.pub-badge-amber { background: var(--amber); }
+
+/* ===== NEWS ===== */
+.news-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.news-card {
+  border: 1.5px solid var(--slate-200); border-radius: 14px;
+  overflow: hidden; transition: all 0.25s; background: var(--white);
+}
+.news-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+.news-accent { height: 4px; }
+.na-teal { background: linear-gradient(90deg, var(--teal), var(--sky)); }
+.na-amber { background: linear-gradient(90deg, var(--amber), var(--amber-light)); }
+.na-violet { background: linear-gradient(90deg, var(--violet), var(--violet-light)); }
+.news-body { padding: 1.75rem; }
+.news-date { font-size: 0.8rem; color: var(--teal); font-weight: 700; margin-bottom: 0.5rem; }
+.news-card h4 { font-size: 1.1rem; font-weight: 600; color: var(--slate-800); margin-bottom: 0.5rem; line-height: 1.4; }
+.news-card p { font-size: 0.92rem; color: var(--slate-500); line-height: 1.7; }
+
+/* ===== RESOURCES ===== */
+.resources-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.resource-card {
+  background: var(--white); border: 1.5px solid var(--slate-200);
+  border-radius: 14px; padding: 2rem; transition: all 0.3s;
+  text-align: center;
+}
+.resource-card:hover { border-color: var(--teal); box-shadow: 0 4px 16px rgba(8,145,178,0.06); }
+.resource-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem; font-size: 1.5rem;
+}
+.ri-teal { background: var(--teal-50); }
+.ri-amber { background: #fef3c7; }
+.ri-violet { background: #ede9fe; }
+.resource-card h4 { font-size: 1.1rem; font-weight: 600; color: var(--slate-800); margin-bottom: 0.5rem; }
+.resource-card p { font-size: 0.92rem; color: var(--slate-500); line-height: 1.7; margin-bottom: 1rem; }
+.resource-link {
+  font-size: 0.88rem; font-weight: 600; color: var(--teal); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.resource-link:hover { text-decoration: underline; }
+.resources-note {
+  text-align: center; margin-top: 2rem;
+  font-size: 0.95rem; color: var(--slate-400); font-style: italic;
+}
+
+/* ===== JOIN ===== */
+.join-content {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start;
+}
+.join-text p { font-size: 1.05rem; color: var(--slate-600); margin-bottom: 1.5rem; line-height: 1.85; }
+.join-looking {
+  font-family: var(--font-serif);
+  font-size: 1.2rem; font-weight: 600; color: var(--slate-800);
+  margin: 2rem 0 1rem;
+}
+.join-list { list-style: none; margin-bottom: 2rem; }
+.join-list li {
+  padding: 0.7rem 0; font-size: 1rem; color: var(--slate-600);
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  border-bottom: 1px solid var(--slate-100);
+}
+.join-list li:first-child { border-top: 1px solid var(--slate-100); }
+.join-list li::before {
+  content: ''; flex-shrink: 0; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--teal); margin-top: 0.55rem;
+}
+.join-box {
+  background: linear-gradient(135deg, var(--teal), #0284c7);
+  border-radius: 16px; padding: 2.5rem; color: var(--white);
+}
+.join-box h4 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem;
+}
+.join-box .contact-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.75rem 0; font-size: 0.95rem; color: rgba(255,255,255,0.85);
+}
+.join-box .contact-item svg { width: 20px; height: 20px; stroke: rgba(255,255,255,0.7); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+.join-box .contact-item a { color: var(--white); text-decoration: none; font-weight: 600; }
+.join-box .contact-item a:hover { text-decoration: underline; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--slate-900); color: var(--slate-400);
+  padding: 3rem 2rem;
+}
+.footer-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo {
+  font-family: var(--font-serif); font-size: 1.25rem;
+  font-weight: 700; color: var(--white);
+}
+.footer-logo .color { color: var(--teal-light); }
+footer p { font-size: 0.85rem; }
+.footer-links { display: flex; gap: 1.5rem; list-style: none; }
+.footer-links a { color: var(--slate-400); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+.footer-links a:hover { color: var(--teal-light); }
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-illustration { display: none; }
+  .hero-text h1 { font-size: 2.6rem; }
+  .research-grid { grid-template-columns: 1fr; }
+  .pi-section { grid-template-columns: 1fr; }
+  .pi-photo { width: 180px; height: 220px; }
+  .news-grid { grid-template-columns: 1fr; }
+  .resources-grid { grid-template-columns: 1fr; }
+  .join-content { grid-template-columns: 1fr; }
+  .clinical-callout { flex-direction: column; text-align: center; padding: 2rem; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
+  nav.open .nav-links {
+    display: flex; flex-direction: column;
+    position: absolute; top: 68px; left: 0; right: 0;
+    background: var(--white); border-bottom: 1px solid var(--slate-200);
+    padding: 1rem; gap: 0;
+  }
+  .hero-text h1 { font-size: 2.1rem; }
+  section { padding: 4rem 1.25rem; }
+  .section-title { font-size: 2rem; }
+  .pub-item { grid-template-columns: 55px 1fr; gap: 1rem; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Zhao <span class="color">Lab</span></a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#people">People</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#join">Join Us</a></li>
+    </ul>
+    <button class="mobile-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-tag"><span class="dot"></span> Baylor College of Medicine</div>
+      <h1>How does cancer <span class="highlight">hijack translation</span> — and can we stop it?</h1>
+      <p class="hero-desc">
+        Every cell in your body relies on the same fundamental process to make proteins: <strong>translation</strong>. Cancer cells don't just mutate their genes — they rewire <em>which</em> messages get translated and <em>how</em>. We study this process to find vulnerabilities that could become the next wave of cancer therapies.
+      </p>
+      <p class="hero-desc">
+        Our work has already helped move a therapy into a <strong>clinical trial</strong> — and we're just getting started.
+      </p>
+      <div class="affiliation">
+        Lester &amp; Sue Smith Breast Center &middot; Dan L Duncan Comprehensive Cancer Center
+      </div>
+      <div class="hero-btns">
+        <a href="#research" class="btn btn-teal">Explore Our Science</a>
+        <a href="#join" class="btn btn-light">Join the Lab</a>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <div class="hero-svg-wrap">
+        <!-- Colorful abstract ribosome / translation illustration -->
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Large ribosome subunit -->
+          <ellipse cx="200" cy="210" rx="130" ry="110" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5" opacity="0.7"/>
+          <ellipse cx="200" cy="180" rx="90" ry="70" fill="#cffafe" stroke="#0891b2" stroke-width="1" opacity="0.5"/>
+          <!-- Small subunit -->
+          <ellipse cx="200" cy="140" rx="65" ry="40" fill="#ede9fe" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+          <!-- mRNA strand — wavy colorful line -->
+          <path d="M40 210 Q80 170 120 210 Q160 250 200 210 Q240 170 280 210 Q320 250 360 210" stroke="#0891b2" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Codons on mRNA -->
+          <circle cx="120" cy="210" r="8" fill="#0891b2" opacity="0.3"/>
+          <circle cx="200" cy="210" r="8" fill="#7c3aed" opacity="0.3"/>
+          <circle cx="280" cy="210" r="8" fill="#f59e0b" opacity="0.3"/>
+          <!-- tRNA molecules -->
+          <path d="M120 210 L120 160 L135 145" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="135" cy="140" r="6" fill="#10b981" opacity="0.6"/>
+          <path d="M200 210 L200 155 L215 140" stroke="#f43f5e" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="215" cy="135" r="6" fill="#f43f5e" opacity="0.6"/>
+          <path d="M280 210 L280 165 L295 150" stroke="#f59e0b" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="295" cy="145" r="6" fill="#f59e0b" opacity="0.6"/>
+          <!-- Amino acid chain / polypeptide emerging -->
+          <path d="M135 145 Q150 110 175 105 Q200 100 215 105 Q230 110 240 95 Q250 80 270 78 Q290 76 305 82" stroke="#0ea5e9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="1 6"/>
+          <!-- Decorative circles — amino acids -->
+          <circle cx="150" cy="110" r="5" fill="#0ea5e9" opacity="0.5"/>
+          <circle cx="190" cy="102" r="5" fill="#0891b2" opacity="0.5"/>
+          <circle cx="230" cy="98" r="5" fill="#7c3aed" opacity="0.4"/>
+          <circle cx="265" cy="80" r="5" fill="#f43f5e" opacity="0.4"/>
+          <circle cx="300" cy="82" r="5" fill="#10b981" opacity="0.5"/>
+          <!-- A, U, G, C base letters -->
+          <text x="110" y="235" fill="#0891b2" font-size="11" font-family="Inter,sans-serif" font-weight="600" opacity="0.5">A U G</text>
+          <text x="190" y="235" fill="#7c3aed" font-size="11" font-family="Inter,sans-serif" font-weight="600" opacity="0.5">G C A</text>
+          <text x="270" y="235" fill="#f59e0b" font-size="11" font-family="Inter,sans-serif" font-weight="600" opacity="0.5">U A C</text>
+          <!-- 5' and 3' labels -->
+          <text x="20" y="215" fill="#94a3b8" font-size="13" font-family="Inter,sans-serif" font-weight="700">5'</text>
+          <text x="370" y="215" fill="#94a3b8" font-size="13" font-family="Inter,sans-serif" font-weight="700">3'</text>
+        </svg>
+        <!-- Floating science tags -->
+        <div class="science-tag st-1">
+          <div class="icon">&#x1F9EC;</div>
+          <span>mRNA Translation</span>
+        </div>
+        <div class="science-tag st-2">
+          <div class="icon">&#x1F52C;</div>
+          <span>Ribosome Profiling</span>
+        </div>
+        <div class="science-tag st-3">
+          <div class="icon">&#x1F48A;</div>
+          <span>Therapeutic Targets</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="bg-teal">
+  <div class="section-inner">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">The Questions That Drive Us</h2>
+    <p class="research-intro">
+      Cancer cells don't just carry mutations — they change the rules of <strong>how messages become proteins</strong>. This process, called translational regulation, is one of the most underexplored layers of cancer biology. Our lab asks: how do tumors rewire this machinery, and can we exploit it to develop new treatments? We currently focus on <strong>breast cancer</strong>, with a particular emphasis on triple-negative breast cancer (TNBC), one of the most aggressive subtypes with the fewest therapeutic options.
+    </p>
+
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="rc-badge rc-badge-teal">Question I</div>
+        <h3>How does cancer rewire its protein-making machinery?</h3>
+        <p>Cancer cells co-opt translational regulators — like eIF4A, eIF4E, and eIF4G2 — to selectively amplify translation of specific oncogenic messages while ignoring others. We map these dependencies to understand which molecular switches cancer flips and why.</p>
+        <div class="methods">
+          <span class="method-tag">Polysome profiling</span>
+          <span class="method-tag">Ribosome footprinting</span>
+          <span class="method-tag">Functional genomics</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="rc-badge rc-badge-amber">Question II</div>
+        <h3>How does the tumor ecosystem reshape translation?</h3>
+        <p>Tumors aren't just cancer cells — they're complex ecosystems of immune cells, stroma, and signaling molecules. We investigate how this microenvironment reprograms translational landscapes, creating feedback loops that fuel metastasis, immune evasion, and drug resistance.</p>
+        <div class="methods">
+          <span class="method-tag">Single-cell analysis</span>
+          <span class="method-tag">Spatial transcriptomics</span>
+          <span class="method-tag">Organoid models</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <div class="rc-badge rc-badge-violet">Question III</div>
+        <h3>Can we target translation to treat patients?</h3>
+        <p>This isn't purely academic — our discovery that eIF4A is a critical driver of metastasis has already contributed to a clinical trial. We continue developing strategies to therapeutically target translational dependencies, working to turn biological insights into real options for patients.</p>
+        <div class="methods">
+          <span class="method-tag">Preclinical models</span>
+          <span class="method-tag">Drug development</span>
+          <span class="method-tag">Clinical collaboration</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="clinical-callout">
+      <div class="cc-icon">&#x1F3AF;</div>
+      <div>
+        <h4>From Discovery to Clinical Trial</h4>
+        <p>Our research on eIF4A's role in metastasis directly contributed to a Phase 1/2 clinical trial (NCT03950570) — demonstrating that fundamental insights into translational regulation can make a real difference for cancer patients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section id="people">
+  <div class="section-inner">
+    <div class="section-label">People</div>
+    <h2 class="section-title">Our Team</h2>
+    <p class="section-subtitle">A collaborative group of researchers driven by curiosity and a commitment to impactful cancer biology.</p>
+
+    <div class="pi-section">
+      <div class="pi-photo">
+        <div class="pi-photo-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <br><span style="font-size:0.8rem">Photo</span>
+        </div>
+      </div>
+      <div class="pi-info">
+        <h3>Na Zhao, Ph.D.</h3>
+        <div class="pi-title">Principal Investigator &middot; Assistant Professor</div>
+        <div class="pi-dept">Department of Molecular &amp; Cellular Biology<br>Lester &amp; Sue Smith Breast Center<br>Dan L Duncan Comprehensive Cancer Center<br>Baylor College of Medicine</div>
+        <p class="pi-bio">
+          Dr. Zhao's lab focuses on understanding how translational regulation is rewired in cancer, with a particular focus on triple-negative breast cancer. Her work spans from mechanistic RNA biology to translational therapeutics, and has contributed to moving targeted therapies into clinical trials. She has been recognized with awards from METAvivor, Mary Kay Ash Foundation, Susan G. Komen, CPRIT, and NCI, among others.
+        </p>
+        <div class="pi-links">
+          <a href="mailto:na.zhao@bcm.edu" class="pi-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+            Email
+          </a>
+          <a href="https://scholar.google.com/citations?user=bkfNfFQAAAAJ" class="pi-link" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=na+zhao+breast+cancer" class="pi-link" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            PubMed
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="members-label">Lab Members</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar ta-teal"><span class="initials">ZW</span></div>
+        <h4>Zhiyuan Wu</h4>
+        <div class="role">Graduate Student</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar ta-violet"><span class="initials">YL</span></div>
+        <h4>Yichen Liu</h4>
+        <div class="role">Graduate Student</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar ta-amber"><span class="initials">MG</span></div>
+        <h4>Misa Gueye</h4>
+        <div class="role">Graduate Student</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar ta-rose"><span class="initials">ZS</span></div>
+        <h4>Zixuan Shao</h4>
+        <div class="role">Research Technician</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar ta-emerald"><span class="initials">GH</span></div>
+        <h4>Grace Ho</h4>
+        <div class="role">Undergraduate Researcher</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar ta-sky"><span class="initials">RM</span></div>
+        <h4>Raya Mandava</h4>
+        <div class="role">Undergraduate Researcher</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="bg-slate">
+  <div class="section-inner">
+    <div class="section-label">Publications</div>
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="section-subtitle">Highlights from our work. &dagger; = co-first author, * = corresponding author. Full list on <a href="https://scholar.google.com/citations?user=bkfNfFQAAAAJ" target="_blank" style="color:var(--teal);text-decoration:none;font-weight:600;">Google Scholar</a>.</p>
+
+    <div class="pub-list">
+      <div class="pub-item featured">
+        <div class="pub-year-col">2026</div>
+        <div>
+          <div class="pub-title-text">LRRC31 is an RNA binding protein that mediates RNA regulatory programs in breast cancer</div>
+          <div class="pub-authors">Chaudhury A, ..., <strong>Zhao N</strong>, ..., Bhattacharya P, Rosen JM</div>
+          <div class="pub-journal">Nucleic Acids Research</div>
+        </div>
+      </div>
+      <div class="pub-item featured">
+        <div class="pub-year-col">2026</div>
+        <div>
+          <div class="pub-title-text">NR4A1 promotes breast cancer lung-specific metastasis by orchestrating innate and adaptive immune suppression</div>
+          <div class="pub-authors">Pedroza DA, ..., <strong>Zhao N</strong>, ..., Rosen JM</div>
+          <div class="pub-journal">Nature Communications</div>
+        </div>
+      </div>
+      <div class="pub-item featured">
+        <div class="pub-year-col">2025</div>
+        <div>
+          <div class="pub-title-text">Science Working Life Essay</div>
+          <div class="pub-authors"><strong>Zhao N</strong></div>
+          <div class="pub-journal">Science</div>
+        </div>
+      </div>
+      <div class="pub-item featured">
+        <div class="pub-year-col">2024</div>
+        <div>
+          <div class="pub-title-text">Targeting eIF4A triggers an interferon response to synergize with chemotherapy and suppress triple-negative breast cancer</div>
+          <div class="pub-authors">Xu L&dagger;, ..., <strong>Zhao N*</strong></div>
+          <div class="pub-journal">Journal of Clinical Investigation, 134(17) <span class="pub-badge">First / Corresponding</span></div>
+        </div>
+      </div>
+      <div class="pub-item featured">
+        <div class="pub-year-col">2022</div>
+        <div>
+          <div class="pub-title-text">A Targetable Rewiring of the Tumor Translatome Restricts Triple-Negative Breast Cancer Metastasis</div>
+          <div class="pub-authors"><strong>Zhao N*</strong>, Kabotyanski EB, ..., Rosen JM*</div>
+          <div class="pub-journal">Journal of Clinical Investigation, 132(10) <span class="pub-badge">First / Corresponding</span></div>
+        </div>
+      </div>
+      <div class="pub-item featured">
+        <div class="pub-year-col">2021</div>
+        <div>
+          <div class="pub-title-text">Pharmacological targeting of MYC-regulated IRE1/XBP1 pathway suppresses MYC-driven breast cancer</div>
+          <div class="pub-authors"><strong>Zhao N*</strong>, ..., Rosen JM*</div>
+          <div class="pub-journal">Journal of Clinical Investigation, 131(21) <span class="pub-badge">First / Corresponding</span></div>
+        </div>
+      </div>
+      <div class="pub-item featured">
+        <div class="pub-year-col">2021</div>
+        <div>
+          <div class="pub-title-text">Morphological screening of mesenchymal mammary tumor organoids to identify drugs that reverse epithelial-mesenchymal transition</div>
+          <div class="pub-authors"><strong>Zhao N&dagger;</strong>, Pessell AF&dagger;, ..., Rosen JM, Hicks J</div>
+          <div class="pub-journal">Nature Communications, 12, 4262 <span class="pub-badge">Co-first</span></div>
+        </div>
+      </div>
+      <div class="pub-item featured">
+        <div class="pub-year-col">2019</div>
+        <div>
+          <div class="pub-title-text">Breast Cancer Heterogeneity Through the Lens of Single-Cell Analysis and Spatial Pathologies</div>
+          <div class="pub-authors"><strong>Zhao N</strong>, Rosen JM</div>
+          <div class="pub-journal">Seminars in Cancer Biology <span class="pub-badge-amber pub-badge">Invited Review</span></div>
+        </div>
+      </div>
+      <div class="pub-item featured">
+        <div class="pub-year-col">2019</div>
+        <div>
+          <div class="pub-title-text">Immuno-genomic landscape of osteosarcoma</div>
+          <div class="pub-authors">Wu CC, ..., <strong>Zhao N</strong>, ..., Hicks MJ, Lau CC</div>
+          <div class="pub-journal">Nature Communications, 11(1), 1008</div>
+        </div>
+      </div>
+      <div class="pub-item featured">
+        <div class="pub-year-col">2017</div>
+        <div>
+          <div class="pub-title-text">Pharmacological Targeting of BET Bromodomain/BRD4 with eIF4A Uncovers Novel Vulnerabilities of Drug-Resistant Triple-Negative Breast Cancer</div>
+          <div class="pub-authors"><strong>Zhao N&dagger;</strong>, ..., Rosen JM</div>
+          <div class="pub-journal">Cell, 171(7) <span class="pub-badge">Co-first &middot; Cell</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-inner">
+    <div class="section-label">News</div>
+    <h2 class="section-title">Lab Highlights</h2>
+    <p class="section-subtitle">Recent milestones and recognition.</p>
+
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-accent na-teal"></div>
+        <div class="news-body">
+          <div class="news-date">2025</div>
+          <h4>CPRIT Individual Investigator Research Award</h4>
+          <p>Dr. Zhao receives CPRIT funding from the Cancer Prevention and Research Institute of Texas, supporting our translational regulation research program.</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-accent na-amber"></div>
+        <div class="news-body">
+          <div class="news-date">2025</div>
+          <h4>Science Working Life Essay Published</h4>
+          <p>Dr. Zhao's personal essay on the journey of building a research career is published in Science magazine's Working Life column.</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-accent na-violet"></div>
+        <div class="news-body">
+          <div class="news-date">2024</div>
+          <h4>METAvivor &amp; Mary Kay Ash Awards</h4>
+          <p>Back-to-back recognition from METAvivor and the Mary Kay Ash Foundation, funding new investigations into translational vulnerabilities in metastatic breast cancer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources" class="bg-teal">
+  <div class="section-inner">
+    <div class="section-label">Resources</div>
+    <h2 class="section-title">Lab Resources</h2>
+    <p class="section-subtitle">Protocols, tools, and reference materials for lab members and trainees.</p>
+
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-icon ri-teal">&#x1F4CB;</div>
+        <h4>Lab Protocols</h4>
+        <p>Standard operating procedures for our core experimental techniques — polysome profiling, ribosome footprinting, organoid culture, and more.</p>
+        <span class="resource-link">Coming soon &rarr;</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon ri-amber">&#x1F4BB;</div>
+        <h4>Computational Tools</h4>
+        <p>Bioinformatics pipelines, analysis scripts, and tutorials for RNA-seq, Ribo-seq, and single-cell data analysis used in the lab.</p>
+        <span class="resource-link">Coming soon &rarr;</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon ri-violet">&#x1F4DA;</div>
+        <h4>Reading &amp; Training</h4>
+        <p>Recommended papers, textbook chapters, and training resources for new lab members getting started in translation biology and cancer research.</p>
+        <span class="resource-link">Coming soon &rarr;</span>
+      </div>
+    </div>
+    <p class="resources-note">Resources are being actively developed. Lab members can request access or suggest additions.</p>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section id="join">
+  <div class="section-inner">
+    <div class="section-label">Join Us</div>
+    <h2 class="section-title">Work With Us</h2>
+    <p class="section-subtitle">We're looking for curious, motivated scientists who want their work to matter.</p>
+
+    <div class="join-content">
+      <div class="join-text">
+        <p>The Zhao Lab is a collaborative and supportive environment where trainees develop real expertise in cancer biology, RNA regulation, computational genomics, and translational research. We value scientific rigor, creativity, and the drive to make discoveries that change how we understand and treat cancer.</p>
+        <p>We're a young, growing lab — which means every member shapes our direction and culture. If you're excited about understanding biology at a fundamental level and translating that into therapeutic impact, we'd love to hear from you.</p>
+
+        <div class="join-looking">We are currently seeking:</div>
+        <ul class="join-list">
+          <li>Postdoctoral fellows with expertise in cancer biology, RNA biology, or computational genomics</li>
+          <li>Graduate students through BCM's Molecular &amp; Cellular Biology, Cancer Biology, or related programs</li>
+          <li>Motivated undergraduate researchers for summer or year-round projects</li>
+        </ul>
+        <p>To apply, email Dr. Zhao with your CV and a brief note about what excites you scientifically.</p>
+      </div>
+      <div class="join-box">
+        <h4>Get in Touch</h4>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+          <a href="mailto:na.zhao@bcm.edu">na.zhao@bcm.edu</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Baylor College of Medicine<br>One Baylor Plaza<br>Houston, TX 77030</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.69 2.35a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.73-1.26a2 2 0 012.11-.45c.75.33 1.54.56 2.35.69A2 2 0 0122 16.92z"/></svg>
+          <span>(832) 855-1670</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Zhao <span class="color">Lab</span></div>
+      <p style="margin-top:0.5rem;">&copy; 2026 Zhao Lab &middot; Baylor College of Medicine</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#people">People</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#join">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+// Mobile nav close
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
+});
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.research-card, .team-card, .pub-item, .news-card, .resource-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

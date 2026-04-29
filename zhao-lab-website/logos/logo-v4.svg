@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 180" width="480" height="180">
+  <!--
+    Logo v4: Vibrant Apple-inspired palette, clearly readable biology
+    - mRNA = backbone strand with colored nucleotide "lollipops" (A=green, U=coral, G=gold, C=blue)
+    - Ribosome = 40S+60S sandwich clamping the mRNA, merging with both strands
+    - Protein = chain of distinct colorful amino acid circles connected by backbone
+    - The Z shape flows: mRNA top → ribosome middle → protein bottom
+
+    Colors (Apple-inspired vibrant):
+    - Ocean blue: #007AFF (mRNA backbone)
+    - Coral pink: #FF6482
+    - Emerald green: #30D158
+    - Warm gold: #FFD60A
+    - Sky blue: #64D2FF
+    - Soft violet: #BF5AF2
+    - Warm orange: #FF9F0A
+    - Ribosome: soft lilac fill with violet stroke
+  -->
+
+  <!-- ====== TOP: mRNA strand with nucleotide "lollipops" ====== -->
+
+  <!-- mRNA backbone — smooth flowing strand -->
+  <path d="M8 44 L108 44" stroke="#007AFF" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Nucleotides as colored circles on stems ("lollipops" off the backbone) -->
+  <!-- A = green -->
+  <line x1="18" y1="44" x2="18" y2="24" stroke="#30D158" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="18" cy="20" r="8" fill="#30D158"/>
+  <text x="14.5" y="24" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="800" fill="white">A</text>
+
+  <!-- U = coral -->
+  <line x1="38" y1="44" x2="38" y2="24" stroke="#FF6482" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="38" cy="20" r="8" fill="#FF6482"/>
+  <text x="34.5" y="24" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="800" fill="white">U</text>
+
+  <!-- G = gold -->
+  <line x1="58" y1="44" x2="58" y2="24" stroke="#FFD60A" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="58" cy="20" r="8" fill="#FFD60A"/>
+  <text x="54.5" y="24" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="800" fill="white">G</text>
+
+  <!-- C = blue -->
+  <line x1="78" y1="44" x2="78" y2="24" stroke="#64D2FF" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="78" cy="20" r="8" fill="#64D2FF"/>
+  <text x="74.5" y="24" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="800" fill="white">C</text>
+
+  <!-- A = green (second) -->
+  <line x1="98" y1="44" x2="98" y2="24" stroke="#30D158" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="98" cy="20" r="8" fill="#30D158"/>
+  <text x="94.5" y="24" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="800" fill="white">A</text>
+
+  <!-- 5' and 3' labels -->
+  <text x="0" y="56" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#007AFF" opacity="0.6">5'</text>
+  <text x="104" y="56" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#007AFF" opacity="0.6">3'</text>
+
+  <!-- ====== DIAGONAL: mRNA enters ribosome ====== -->
+
+  <!-- Connecting curve from mRNA into ribosome — backbone continues -->
+  <path d="M108 44 C108 54, 96 62, 82 70"
+        stroke="#007AFF" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- ====== RIBOSOME — 40S (small) + 60S (large) sandwiching the mRNA ====== -->
+
+  <!-- 60S large subunit — sits below -->
+  <path d="M28 98 C28 82, 40 74, 58 74 C76 74, 88 82, 88 98 C88 108, 76 114, 58 114 C40 114, 28 108, 28 98Z"
+        fill="#F2EAFF" stroke="#BF5AF2" stroke-width="2" opacity="0.9"/>
+  <text x="48" y="104" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#BF5AF2" opacity="0.7">60S</text>
+
+  <!-- 40S small subunit — sits on top, overlapping slightly -->
+  <ellipse cx="58" cy="72" rx="24" ry="12" fill="#E8F5FF" stroke="#007AFF" stroke-width="2" opacity="0.9"/>
+  <text x="48" y="76" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#007AFF" opacity="0.7">40S</text>
+
+  <!-- mRNA threading through the channel between subunits (visible between 40S and 60S) -->
+  <path d="M34 82 L82 82" stroke="#007AFF" stroke-width="2" stroke-dasharray="4 3" opacity="0.35" stroke-linecap="round"/>
+
+  <!-- ====== DIAGONAL: ribosome outputs protein ====== -->
+
+  <!-- Connecting curve from ribosome into protein chain -->
+  <path d="M34 100 C26 110, 20 120, 14 126"
+        stroke="#BF5AF2" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- ====== BOTTOM: Protein — amino acid bead chain ====== -->
+
+  <!-- Backbone connecting line -->
+  <path d="M14 140 L106 140" stroke="#475569" stroke-width="1.5" opacity="0.2" stroke-linecap="round"/>
+
+  <!-- Amino acid circles — each a different vibrant color -->
+  <circle cx="14" cy="140" r="9" fill="#BF5AF2"/>
+  <circle cx="33" cy="140" r="9" fill="#FF6482"/>
+  <circle cx="52" cy="140" r="9" fill="#FF9F0A"/>
+  <circle cx="71" cy="140" r="9" fill="#30D158"/>
+  <circle cx="90" cy="140" r="9" fill="#007AFF"/>
+  <circle cx="106" cy="140" r="7" fill="#64D2FF" opacity="0.6"/>
+
+  <!-- Subtle shine on each bead for 3D feel -->
+  <circle cx="11" cy="137" r="3" fill="white" opacity="0.3"/>
+  <circle cx="30" cy="137" r="3" fill="white" opacity="0.3"/>
+  <circle cx="49" cy="137" r="3" fill="white" opacity="0.3"/>
+  <circle cx="68" cy="137" r="3" fill="white" opacity="0.3"/>
+  <circle cx="87" cy="137" r="3" fill="white" opacity="0.3"/>
+
+  <!-- ====== TEXT ====== -->
+  <text x="148" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="700" fill="#1e293b">Zhao</text>
+  <text x="288" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="700" fill="#007AFF">Lab</text>
+
+  <!-- Tagline -->
+  <text x="150" y="108" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="500" fill="#64748b" letter-spacing="0.5">
+    Translation &amp; Cancer Biology
+  </text>
+
+  <!-- Affiliation -->
+  <text x="150" y="132" font-family="Inter, Arial, Helvetica, sans-serif" font-size="12" fill="#94a3b8" letter-spacing="0.3">
+    Baylor College of Medicine
+  </text>
+</svg>
